@@ -21,8 +21,10 @@ pipeline {
     stage('Save & Archive') {
       steps {
         sh "docker save ${IMAGE_NAME}:${IMAGE_TAG} -o ${IMAGE_NAME}_${IMAGE_TAG}.tar"
+        sh 'chmod 644 eurodyn-project_latest.tar'
         archiveArtifacts artifacts: "${IMAGE_NAME}_${IMAGE_TAG}.tar", fingerprint: true
       }
     }
   }
 }
+
