@@ -16,7 +16,8 @@ public class SimpleRouteResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Map<String, String> getParam(@QueryParam("param") String param) {
         Map<String, String> response = new HashMap<>();
-        response.put("param", param != null ? param : "null");
+        response.put("parameter", param != null ? param : "null");
         return response;
     }
 }
+
